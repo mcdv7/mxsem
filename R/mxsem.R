@@ -314,7 +314,7 @@ mxsem <- function(model,
     mx_data <- data
   }else{
     if(!add_intercepts){
-      mx_data <- OpenMx::mxData(observed = stats::cov(data),
+      mx_data <- OpenMx::mxData(observed = stats::cov(as.matrix(data[,parameter_table$variables$manifests])),
                                 type = "cov",
                                 numObs = nrow(data))
     }else{
@@ -514,6 +514,10 @@ add_algebra <- function(mxMod,
     mxMod$A$labels[mxMod$A$labels == algebras$lhs[i]] <- paste0(algebras$lhs[i], "[1,1]")
     mxMod$S$labels[mxMod$S$labels == algebras$lhs[i]] <- paste0(algebras$lhs[i], "[1,1]")
     mxMod$M$labels[mxMod$M$labels == algebras$lhs[i]] <- paste0(algebras$lhs[i], "[1,1]")
+    if(!is.null(mxMod$new_parameters)){
+      mxMod$new_parameters$free[mxMod$new_parameters$labels == algebras$lhs[i]] <- FALSE
+      mxMod$new_parameters$labels[mxMod$new_parameters$labels == algebras$lhs[i]] <- paste0(algebras$lhs[i], "[1,1]")
+    }
     mxMod <- OpenMx::mxModel(mxMod,
                              OpenMx::mxAlgebraFromString(algString = algebras$rhs[i],
                                                          name = algebras$lhs[i]))

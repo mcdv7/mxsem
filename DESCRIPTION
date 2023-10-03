@@ -1,8 +1,8 @@
 Package: mxsem
 Type: Package
 Title: Specify 'OpenMx' Models with a 'lavaan'-Style Syntax
-Version: 0.0.5
-Date: 2023-07-12
+Version: 0.0.8
+Date: 2023-10-03
 Authors@R: c(person(given   = "Jannik H.", family = "Orzek",
                     role    = c("aut", "cre", "cph"),
                     email   = "jannik.orzek@mailbox.org",
@@ -14,7 +14,7 @@ Description: Provides a 'lavaan'-like syntax for 'OpenMx' models. The syntax sup
   nonlinear factor analysis and much more.
 License: GPL (>= 3)
 Depends: OpenMx
-Imports: Rcpp (>= 1.0.10), stats, methods
+Imports: Rcpp (>= 1.0.10), stats, methods, dplyr, utils
 LinkingTo: Rcpp
 RoxygenNote: 7.2.3
 Encoding: UTF-8
@@ -23,8 +23,8 @@ Config/testthat/edition: 3
 URL: https://jhorzek.github.io/mxsem/
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2023-08-11 07:32:18 UTC; janni
+Packaged: 2023-10-03 13:58:19 UTC; jannik
 Author: Jannik H. Orzek [aut, cre, cph]
     (<https://orcid.org/0000-0002-3123-2248>)
 Repository: CRAN
-Date/Publication: 2023-08-11 12:40:10 UTC
+Date/Publication: 2023-10-03 15:40:03 UTC
