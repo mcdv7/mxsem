@@ -68,8 +68,8 @@ get_individual_algebra_results <- function(mxModel,
 
     # find definition variables used in this algebra
     algebra_elements <- extract_algebra_elements(mxAlgebra_formula = mxModel$algebras[[algebra_name]]$formula)
-    definition_variables <- algebra_elements[grepl("^data\\.", x = algebra_elements)] |>
-      gsub(pattern = "data\\.", replacement = "", x = _)
+    definition_variables <- gsub(pattern = "data\\.", replacement = "", x = algebra_elements[grepl("^data\\.", x = algebra_elements)])
+
 
     algebra_result <- data.frame(person = 1:n_subjects,
                                  mxModel$data$observed[,definition_variables, drop = FALSE],
